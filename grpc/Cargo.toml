@@ -5,11 +5,8 @@ edition = "2021"
 
 [dependencies]
 prost = "0.13.5"
-tokio = { version = "1.43.0", features = ["full"] }
 tonic = "0.12.3"
+tokio = { version = "1.43.0", features = ["full"] }
 
 [build-dependencies]
 tonic-build = "0.12.3"
-
-[features]
-count = []
