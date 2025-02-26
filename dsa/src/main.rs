@@ -1,13 +1,6 @@
-use dsa::linkedlist::singly::LinkedList;
-
+use dsa::linkedlist::DoublyLinkedList;
 fn main() {
-    let mut linked_list: LinkedList<String> = LinkedList::new();
+    let doubly_linked_list: DoublyLinkedList<u8> = DoublyLinkedList::new();
 
-    linked_list.push("a".to_string());
-    linked_list.push("b".to_string());
-
-    let poped_value = linked_list.pop();
-
-    println!("{:?}", poped_value);
-    println!("{:?}", linked_list.is_empty())
+    doubly_linked_list.push()
 }
