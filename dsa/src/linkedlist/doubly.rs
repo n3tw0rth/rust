@@ -43,14 +43,33 @@ impl<T> DoublyLinkedList<T> {
 
     pub fn push_at_index() {}
 
-    pub fn pop_front(&mut self) -> Option<T>
-    where
-        T: Clone,
-    {
-        let value = self.head.clone().unwrap().borrow().data.clone();
+    pub fn pop_front(&mut self) -> Option<T> {
+        self.head.take().map(|head| {
+            match head.borrow_mut().next.take() {
+                Some(node) => {
+                    node.borrow_mut().prev = None;
+                    self.head = Some(node);
+                }
+                None => {
+                    self.tail.take();
+                }
+            }
+            Rc::try_unwrap(head).ok().unwrap().into_inner().data
+        })
+    }
 
-        self.head = self.head.unwrap().borrow().next.clone();
-
-        Some(value)
+    pub fn pop_back(&mut self) -> Option<T> {
+        self.tail.take().map(|tail| {
+            match tail.borrow_mut().prev.take() {
+                Some(node) => {
+                    node.borrow_mut().next = None;
+                    self.tail = Some(node);
+                }
+                None => {
+                    self.head.take();
+                }
+            }
+            Rc::try_unwrap(tail).ok().unwrap().into_inner().data
+        })
     }
 }

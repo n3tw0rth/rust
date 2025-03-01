@@ -5,8 +5,9 @@ fn main() {
 
     doubly_linked_list.push_front(5);
     doubly_linked_list.push_front(4);
+    doubly_linked_list.push_front(7);
 
-    doubly_linked_list.pop_front();
-    let value = doubly_linked_list.pop_front();
-    println!("{:?}", value)
+    println!("{:?}", doubly_linked_list.pop_back());
+    println!("{:?}", doubly_linked_list.pop_back());
+    println!("{:?}", doubly_linked_list.pop_back());
 }
