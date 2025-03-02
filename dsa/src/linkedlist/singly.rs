@@ -1,18 +1,23 @@
-/// # Example
-/// use dsa::linkedlist::singly::LinkedList;
-///
-/// fn main() {
-///     let mut linked_list: LinkedList<String> = LinkedList::new();
-///
-///     linked_list.push("a".to_string());
-///     linked_list.push("b".to_string());
-///
-///     let poped_value = linked_list.pop();
-///
-///     println!("{:?}", poped_value);
-///     println!("{:?}", linked_list.is_empty())
-/// }
-///
+//! A simple demonstration of using a linked list in Rust.
+//!
+//! # Example
+//!
+//! ```
+//! use std::collections::LinkedList;
+//!
+//! fn main() {
+//!     let mut linked_list: LinkedList<String> = LinkedList::new();
+//!
+//!     linked_list.push_back("a".to_string());
+//!     linked_list.push_back("b".to_string());
+//!
+//!     let popped_value = linked_list.pop_front(); // Removes "a"
+//!
+//!     println!("{:?}", popped_value);
+//!     println!("{:?}", linked_list.is_empty());
+//! }
+//! ```
+//!
 struct Node<T> {
     value: T,
     next: Option<Box<Node<T>>>,
